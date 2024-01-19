@@ -18,6 +18,12 @@ import { createStackNavigator } from "@react-navigation/stack";
 import "react-native-gesture-handler";
 import Onboard1 from "./src/screens/Onboard/Onboard1";
 import Onboard3 from "./src/screens/Onboard/Onboard3";
+import Getting1 from "./src/screens/Getting/Getting1";
+import Getting2 from "./src/screens/Getting/Getting2";
+import Children from "./src/screens/Getting/Gender/Children";
+import Teenager from "./src/screens/Getting/Gender/Teenager";
+import Adult from "./src/screens/Getting/Gender/Adult";
+
 
 const Tabs = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -45,7 +51,7 @@ export default function App() {
             headerStyle: {
               height: 0,
             },
-            headerLeft:null
+            headerLeft: null,
           }}
         />
         <Stack.Screen
@@ -56,10 +62,64 @@ export default function App() {
             headerStyle: {
               height: 0,
             },
-            headerLeft:null
+            headerLeft: null,
           }}
         />
-
+        <Stack.Screen
+          name="Getting1"
+          component={Getting1}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="Getting2"
+          component={Getting2}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="Children"
+          component={Children}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="Teenager"
+          component={Teenager}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="Adult"
+          component={Adult}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
     // <View>

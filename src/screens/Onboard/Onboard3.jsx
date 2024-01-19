@@ -1,12 +1,16 @@
 import React from "react";
-import { View, Text,Image, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigationState, useNavigation } from "@react-navigation/native";
-import { Colors } from "../../../GlobleStyles";
+import { Colors } from "../../../GlobalStyles";
+import NextBtn from "../../components/NextBtn";
 
 const Onboard3 = () => {
   const navigation = useNavigation();
+  const goNext = () => {
+    navigation.navigate("Getting1");
+  };
   return (
     <SafeAreaView style={styles.wrapper}>
       <TouchableOpacity
@@ -14,7 +18,7 @@ const Onboard3 = () => {
           navigation.goBack();
         }}
       >
-        <View style={styles.arrowBack}>
+        <View>
           <FontAwesome name="long-arrow-left" size={28} color={Colors.pink} />
         </View>
       </TouchableOpacity>
@@ -26,11 +30,14 @@ const Onboard3 = () => {
           </Text>
         </View>
 
-        <TouchableOpacity style={styles.goNextContainer}>
+        {/* <TouchableOpacity style={styles.goNextContainer} onPress={goNext}>
           <View style={styles.goNextView}>
             <Text style={styles.goNextText}>Tiếp tục</Text>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        <View style={styles.goNextContainer}>
+          <NextBtn goNext={goNext} />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -39,11 +46,10 @@ const Onboard3 = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    marginRight: 10,
+    marginLeft: 10,
   },
-  arrowBack: {
-    width: 40,
-    paddingLeft: 10,
-  },
+
   titleContainer: {
     marginTop: 15,
     alignItems: "center",
@@ -58,20 +64,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 20,
   },
-  goNextView: {
-    width: 300,
-    height: 50,
-    backgroundColor: Colors.caramel,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 20,
-  },
-  goNextText: {
-    fontSize: 18,
-    fontWeight: 700,
-    color: Colors.pink,
-    letterSpacing: 2,
-  },
+  
 });
 
 export default Onboard3;

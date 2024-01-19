@@ -10,7 +10,7 @@ import {
 // import { Link } from "expo-router";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Colors } from "../../../GlobleStyles";
+import { Colors } from "../../../GlobalStyles";
 
 import Onboard2 from "./Onboard2";
 // import Layout from "../MainScreen/layout";

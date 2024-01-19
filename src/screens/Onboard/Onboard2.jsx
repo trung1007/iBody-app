@@ -11,7 +11,8 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigationState, useNavigation } from "@react-navigation/native";
-import { Colors } from "../../../GlobleStyles";
+import { Colors } from "../../../GlobalStyles";
+import NextBtn from "../../components/NextBtn";
 const Onboard2 = () => {
   const navigation = useNavigation();
   const goNext=()=>{
@@ -24,7 +25,7 @@ const Onboard2 = () => {
           navigation.goBack();
         }}
       >
-        <View style={styles.arrowBack}>
+        <View>
           <FontAwesome name="long-arrow-left" size={28} color={Colors.pink} />
         </View>
       </TouchableOpacity>
@@ -35,12 +36,9 @@ const Onboard2 = () => {
             Giá trị cốt lõi của ứng dụng
           </Text>
         </View>
-       
-        <TouchableOpacity style={styles.goNextContainer} onPress={goNext}>
-          <View style = {styles.goNextView}>
-            <Text style ={styles.goNextText} >Tiếp tục</Text>
-          </View>
-        </TouchableOpacity>
+        <View style={styles.goNextContainer}>
+          <NextBtn goNext={goNext}/>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -49,10 +47,8 @@ const Onboard2 = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-  },
-  arrowBack: {
-    width: 40,
-    paddingLeft: 10,
+    marginRight:10,
+    marginLeft:10
   },
   titleContainer: {
     marginTop: 15,
@@ -68,21 +64,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 20,
   },
-  goNextView:{
-    width:300,
-    height:50,
-    backgroundColor:Colors.caramel,
-    justifyContent:'center',
-    alignItems:'center',
-    borderRadius:20
-  },
-  goNextText:{
-    fontSize:18,
-    fontWeight:700,
-    color:Colors.pink,
-    letterSpacing:2,
-  }
-
 });
 
 export default Onboard2;
