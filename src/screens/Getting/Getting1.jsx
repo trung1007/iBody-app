@@ -11,6 +11,7 @@ import {
 import { Colors, Font, Btn } from "../../../GlobalStyles";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
+import { useSound } from "../../hooks/useSound";
 
 
 const Getting1 = () => {
@@ -18,6 +19,11 @@ const Getting1 = () => {
   const goNext = () => {
     navigation.navigate("Getting2");
   };
+  const {playSound} = useSound(require('../../../assets/sound/Btn_press2.mp3'))
+  const onPressHandler=async()=>{
+    goNext(),
+    await playSound()
+  }
   return (
     <SafeAreaView style={styles.wrapper}>
       <TouchableOpacity
@@ -42,7 +48,7 @@ const Getting1 = () => {
 
         <View style={styles.next}>
           <View style={styles.getting}>
-            <TouchableOpacity onPress={goNext}>
+            <TouchableOpacity onPress={onPressHandler}>
               <Text style={styles.gettingText}>Trải nghiệm ngay</Text>
             </TouchableOpacity>
           </View>
