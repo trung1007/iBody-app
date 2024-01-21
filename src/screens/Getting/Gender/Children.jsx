@@ -7,15 +7,12 @@ import { useNavigation } from "@react-navigation/native"
 const Children = () =>{
     const [gender,setGender] = useState()
     const navigation=useNavigation()
-    const [age, setAge] = useState('child')
-
-
     const goNext=()=>{
 
     }
     useEffect (()=>{
         if(gender=='male'||gender=='female'){
-            navigation.navigate('Layout', {gender}, {age})
+            navigation.navigate('Layout', {gender, age:'child'})
         }
     }, [gender])
     return (
