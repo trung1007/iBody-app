@@ -1,22 +1,31 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image } from "react-native"
 import SellectHeader from "../../../components/SellectGenderHeader"
 import NextBtn from "../../../components/NextBtn"
+import { useNavigation } from "@react-navigation/native"
+
 
 const Teenager = () =>{
+    const [gender,setGender] = useState()
+    const navigation=useNavigation()
+
 
     const goNext=()=>{
 
     }
-
+    useEffect (()=>{
+        if(gender=='male'||gender=='female'){
+            navigation.navigate('Layout', {gender, age:'teen'})
+        }
+    }, [gender])
     return (
         <SafeAreaView style={styles.wrapper}>
             <SellectHeader/>
             <View style={styles.ImgContainer}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>{setGender('female')}}>
                     <Image source={require('../../../../assets/age/FemaleTeen.png')}/>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={()=>{setGender('male')}}>
                     <Image source={require('../../../../assets/age/MaleTeen.png')}/>
                 </TouchableOpacity>
             </View>

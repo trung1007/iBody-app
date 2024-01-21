@@ -1,14 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, SafeAreaView } from "react-native";
 
-import HomeScreen from "./src/screens/MainScreen/HomeScreen";
-import SettingsScreen from "./src/screens/MainScreen/SettingsScreen";
-import UseStateScreen from "./src/screens/MainScreen/UseStateScreen";
-import UseEffectScreen from "./src/screens/MainScreen/UseEffectScreen";
-import UseContextScreen from "./src/screens/MainScreen/UseContextScreen";
-import UseRefScreen from "./src/screens/MainScreen/UseRefScreen";
-import FetchAPIScreen from "./src/screens/MainScreen/FetchAPIScreen";
-import Onboard2 from "./src/screens/Onboard/Onboard2";
+
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -17,12 +10,14 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import "react-native-gesture-handler";
 import Onboard1 from "./src/screens/Onboard/Onboard1";
+import Onboard2 from "./src/screens/Onboard/Onboard2";
 import Onboard3 from "./src/screens/Onboard/Onboard3";
 import Getting1 from "./src/screens/Getting/Getting1";
 import Getting2 from "./src/screens/Getting/Getting2";
 import Children from "./src/screens/Getting/Gender/Children";
 import Teenager from "./src/screens/Getting/Gender/Teenager";
 import Adult from "./src/screens/Getting/Gender/Adult";
+import Layout from "./src/screens/MainScreen/Layout";
 
 
 const Tabs = createBottomTabNavigator();
@@ -32,7 +27,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="Getting2">
         <Stack.Screen
           name="Getting Started"
           component={Onboard1}
@@ -112,6 +107,17 @@ export default function App() {
         <Stack.Screen
           name="Adult"
           component={Adult}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="Layout"
+          component={Layout}
           options={{
             title: "",
             headerStyle: {
