@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     display: "flex",
+    backgroundColor:'white'
+
   },
   title: {
     display: "flex",

@@ -11,30 +11,23 @@ const Onboard3 = () => {
   const goNext = () => {
     navigation.navigate("Getting1");
   };
+  
   return (
     <SafeAreaView style={styles.wrapper}>
-      <TouchableOpacity
-        onPress={() => {
+      <View style={styles.arrowBack}>
+        <TouchableOpacity onPress={() => {
           navigation.goBack();
-        }}
-      >
-        <View>
-          <FontAwesome name="long-arrow-left" size={28} color={Colors.pink} />
-        </View>
-      </TouchableOpacity>
+        }}>
+        <FontAwesome name="long-arrow-left" size={28} color={Colors.pink} />
+        </TouchableOpacity>
+      </View>
       <View style={{ flex: 1, alignItems: "center", marginTop: 10 }}>
-        <Image source={require("../../../assets/Logo-iBody.png")} />
+        <Image style = {styles.image}source={require("../../../assets/Logo-iBody.png")} />
         <View style={styles.titleContainer}>
           <Text style={styles.title} numberOfLines={2}>
             Những tính năng của ứng dụng
           </Text>
         </View>
-
-        {/* <TouchableOpacity style={styles.goNextContainer} onPress={goNext}>
-          <View style={styles.goNextView}>
-            <Text style={styles.goNextText}>Tiếp tục</Text>
-          </View>
-        </TouchableOpacity> */}
         <View style={styles.goNextContainer}>
           <NextBtn goNext={goNext} />
         </View>
@@ -46,9 +39,12 @@ const Onboard3 = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    marginRight: 10,
-    marginLeft: 10,
+    backgroundColor:'white'
+
+  }, arrowBack:{
+    paddingLeft:10
   },
+  image:{height:100, width:100},
 
   titleContainer: {
     marginTop: 15,

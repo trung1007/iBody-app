@@ -12,6 +12,7 @@ import "react-native-gesture-handler";
 import Onboard1 from "./src/screens/Onboard/Onboard1";
 import Onboard2 from "./src/screens/Onboard/Onboard2";
 import Onboard3 from "./src/screens/Onboard/Onboard3";
+import LoginScreen from "./src/screens/AuthScreen/LoginScreen";
 import Getting1 from "./src/screens/Getting/Getting1";
 import Getting2 from "./src/screens/Getting/Getting2";
 import Children from "./src/screens/Getting/Gender/Children";
@@ -52,6 +53,17 @@ export default function App() {
         <Stack.Screen
           name="Onboard3"
           component={Onboard3}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
           options={{
             title: "",
             headerStyle: {

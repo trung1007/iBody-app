@@ -19,8 +19,16 @@ const Getting1 = () => {
   const goNext = () => {
     navigation.navigate("Getting2");
   };
+  const goLogin = () =>{
+    navigation.navigate('Login')
+  }
   const {playSound} = useSound(require('../../../assets/sound/Btn_press2.mp3'))
-  const onPressHandler=async()=>{
+
+  const onPressLogin=async()=>{
+    goLogin(),
+    await playSound()
+  }
+  const onPressNext=async()=>{
     goNext(),
     await playSound()
   }
@@ -48,7 +56,7 @@ const Getting1 = () => {
 
         <View style={styles.next}>
           <View style={styles.getting}>
-            <TouchableOpacity onPress={onPressHandler}>
+            <TouchableOpacity onPress={onPressNext}>
               <Text style={styles.gettingText}>Trải nghiệm ngay</Text>
             </TouchableOpacity>
           </View>
@@ -57,7 +65,7 @@ const Getting1 = () => {
             <Button title="Bắt đầu ngay" color={Colors.pink} onPress={goNext} />
           </View>
           <View style={styles.login}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPressLogin}>
               <Text style={styles.loginText}>Đăng nhập</Text>
             </TouchableOpacity>
           </View>

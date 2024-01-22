@@ -20,17 +20,15 @@ const Onboard2 = () => {
   }
   return (
     <SafeAreaView style={styles.wrapper}>
-      <TouchableOpacity
-        onPress={() => {
+      <View style={styles.arrowBack}>
+        <TouchableOpacity onPress={() => {
           navigation.goBack();
-        }}
-      >
-        <View>
-          <FontAwesome name="long-arrow-left" size={28} color={Colors.pink} />
-        </View>
-      </TouchableOpacity>
+        }}>
+        <FontAwesome name="long-arrow-left" size={28} color={Colors.pink} />
+        </TouchableOpacity>
+      </View>
       <View style={{ flex: 1, alignItems: "center", marginTop: 10 }}>
-        <Image source={require("../../../assets/Logo-iBody.png")} />
+        <Image style={styles.image} source={require("../../../assets/Logo-iBody.png")} />
         <View style={styles.titleContainer}>
           <Text style={styles.title} numberOfLines={2}>
             Giá trị cốt lõi của ứng dụng
@@ -47,9 +45,12 @@ const Onboard2 = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    marginRight:10,
-    marginLeft:10
+    backgroundColor:'white'
   },
+  arrowBack:{
+    paddingLeft:10
+  },
+  image:{height:100, width:100},
   titleContainer: {
     marginTop: 15,
     alignItems: "center",
