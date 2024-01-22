@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigationState, useNavigation } from "@react-navigation/native";
 import { Colors } from "../../../GlobalStyles";
-import NextBtn from "../../components/NextBtn";
+import BigBtn from "../../components/BigBtn";
 
 const Onboard3 = () => {
   const navigation = useNavigation();
@@ -29,7 +29,7 @@ const Onboard3 = () => {
           </Text>
         </View>
         <View style={styles.goNextContainer}>
-          <NextBtn goNext={goNext} />
+        <BigBtn goNext={goNext} text={'Tiếp tục'}/>
         </View>
       </View>
     </SafeAreaView>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   goNextContainer: {
     position: "absolute",
-    bottom: 20,
+    bottom: 0,
   },
   
 });

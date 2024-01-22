@@ -12,7 +12,7 @@ import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { useNavigationState, useNavigation } from "@react-navigation/native";
 import { Colors } from "../../../GlobalStyles";
-import NextBtn from "../../components/NextBtn";
+import BigBtn from "../../components/BigBtn";
 const Onboard2 = () => {
   const navigation = useNavigation();
   const goNext=()=>{
@@ -35,7 +35,7 @@ const Onboard2 = () => {
           </Text>
         </View>
         <View style={styles.goNextContainer}>
-          <NextBtn goNext={goNext}/>
+        <BigBtn goNext={goNext} text={'Tiếp tục'}/>
         </View>
       </View>
     </SafeAreaView>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   goNextContainer: {
     position: "absolute",
-    bottom: 20,
+    bottom: 0,
   },
 });
 

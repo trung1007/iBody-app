@@ -12,6 +12,7 @@ import { Colors, Font, Btn } from "../../../GlobalStyles";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
 import { useSound } from "../../hooks/useSound";
+import BigBtn from "../../components/BigBtn";
 
 
 const Getting1 = () => {
@@ -21,6 +22,9 @@ const Getting1 = () => {
   };
   const goLogin = () =>{
     navigation.navigate('Login')
+  }
+  const goRegister=()=>{
+    navigation.navigate('Register')
   }
   const {playSound} = useSound(require('../../../assets/sound/Btn_press2.mp3'))
 
@@ -62,12 +66,13 @@ const Getting1 = () => {
           </View>
           <View style={styles.register}>
             <Text style={{ fontSize: 16 }}>Bạn chưa có tài khoản?</Text>
-            <Button title="Bắt đầu ngay" color={Colors.pink} onPress={goNext} />
+            <Button title="Bắt đầu ngay" color={Colors.pink} onPress={goRegister} />
           </View>
           <View style={styles.login}>
             <TouchableOpacity onPress={onPressLogin}>
               <Text style={styles.loginText}>Đăng nhập</Text>
             </TouchableOpacity>
+            {/* <BigBtn goNext={goLogin} text={'Đăng nhập'}/> */}
           </View>
         </View>
       </View>
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
   },
   next: {
     position: "absolute",
-    bottom: 20,
+    bottom: 0,
     justifyContent: "center",
     alignItems: "center",
   },

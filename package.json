@@ -12,6 +12,7 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/react-native-fontawesome": "^0.3.0",
+    "@react-native-community/checkbox": "^0.5.17",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/drawer": "^6.6.6",
     "@react-navigation/native": "^6.1.9",
@@ -29,7 +30,8 @@
     "react-native-screens": "~3.22.0",
     "react-native-sound": "^0.11.2",
     "react-native-svg": "^14.1.0",
-    "react-native-vector-icons": "^10.0.3"
+    "react-native-vector-icons": "^10.0.3",
+    "expo-checkbox": "~2.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

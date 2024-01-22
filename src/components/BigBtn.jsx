@@ -5,7 +5,7 @@ import { Colors, Btn, Font } from "../../GlobalStyles";
 import { Audio } from "expo-av";
 import { useSound } from "../hooks/useSound";
 
-const NextBtn = ({ goNext }) => {
+const BigBtn = ({goNext, text}) => {
   // const [sound, setSound] = useState();
   const { playSound } = useSound(require('../../assets/sound/Btn_press1.mp3'));
 
@@ -33,7 +33,7 @@ const NextBtn = ({ goNext }) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={onPressHandler}>
-        <Text style={styles.goNextText}>Tiếp tục</Text>
+        <Text style={styles.goNextText}>{text}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -56,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default NextBtn;
+export default BigBtn;

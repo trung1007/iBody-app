@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react"
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image } from "react-native"
 import SellectHeader from "../../../components/SellectGenderHeader"
-import NextBtn from "../../../components/NextBtn"
+import NextBtn from "../../../components/BigBtn"
 import { useNavigation } from "@react-navigation/native"
 
 

@@ -14,7 +14,8 @@ import { Colors } from "../../../GlobalStyles";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons } from "@expo/vector-icons";
+import BigBtn from "../../components/BigBtn";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
@@ -28,6 +29,9 @@ const LoginScreen = () => {
   const goRegister = () => {
     navigation.navigate("Register");
   };
+  const goNext=()=>{
+    navigation.navigate('Getting2')
+  }
 
   const navigation = useNavigation();
   return (
@@ -75,7 +79,9 @@ const LoginScreen = () => {
 
         <View style={styles.bottom}>
           <View>
-            <Text style={{fontSize:24, fontWeight:'600'}}>Đăng nhập bằng</Text>
+            <Text style={{ fontSize: 24, fontWeight: "600" }}>
+              Đăng nhập bằng
+            </Text>
             <View style={styles.logo}>
               <FontAwesome5 name="facebook" size={40} color="blue" />
               <AntDesign name="google" size={40} color="#DB4437" />
@@ -89,9 +95,9 @@ const LoginScreen = () => {
               onPress={goRegister}
             />
           </View>
-          <TouchableOpacity style={styles.button} onPress={handleLogin}>
-            <Text style={styles.buttonText}>Đăng nhập</Text>
-          </TouchableOpacity>
+          <View style={styles.LoginBtn}>
+            <BigBtn goNext={goNext} text={'Đăng nhập'}/>
+          </View>
         </View>
       </View>
     </SafeAreaView>
@@ -161,11 +167,14 @@ const styles = StyleSheet.create({
   logo: {
     display: "flex",
     flexDirection: "row",
-    marginTop:12,
-    marginBottom:12,
-    justifyContent:"space-evenly"
-
+    marginTop: 12,
+    marginBottom: 12,
+    justifyContent: "space-evenly",
   },
+  LoginBtn:{
+    position:'absolute',
+    bottom:0
+  }
 });
 
 export default LoginScreen;
