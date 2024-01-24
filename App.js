@@ -20,6 +20,8 @@ import Children from "./src/screens/Getting/Gender/Children";
 import Teenager from "./src/screens/Getting/Gender/Teenager";
 import Adult from "./src/screens/Getting/Gender/Adult";
 import Layout from "./src/screens/MainScreen/Layout";
+import SubLayout from "./src/screens/SubScreen/Layout";
+import SubBody from "./src/screens/SubScreen/SubBody";
 
 
 const Tabs = createBottomTabNavigator();
@@ -29,7 +31,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Getting Started">
+      <Stack.Navigator initialRouteName="Getting2">
         <Stack.Screen
           name="Getting Started"
           component={Onboard1}
@@ -143,6 +145,28 @@ export default function App() {
         <Stack.Screen
           name="Layout"
           component={Layout}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="SubLayout"
+          component={SubLayout}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="SubBody"
+          component={SubBody}
           options={{
             title: "",
             headerStyle: {
