@@ -31,7 +31,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Getting2">
+      <Stack.Navigator initialRouteName="Getting Started">
         <Stack.Screen
           name="Getting Started"
           component={Onboard1}

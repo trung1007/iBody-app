@@ -1,3 +1,7 @@
+import { Dimensions } from "react-native"
+
+const screenWidth = Dimensions.get('window').width;
+
 export const Colors={
     pink: '#f89b89',
     caramel: '#f8d49B',
@@ -11,9 +15,12 @@ export const Font ={
     spacing: 2,
     bigSize:25
 }
-
 export const Btn = {
     bigWidth:300,
     bigHeight: 50,
     border:20
+}
+
+export const Screen={
+    width: screenWidth,
 }
