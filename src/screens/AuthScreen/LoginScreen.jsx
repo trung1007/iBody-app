@@ -16,22 +16,37 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import BigBtn from "../../components/BigBtn";
-
+import AuthService from "../../services/auth.service";
 const LoginScreen = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = () => {
-    // Perform login logic here
-    console.log("Email:", email);
-    console.log("Password:", password);
+  const handleLogin = async () => {
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const response = await AuthService.login(username, password);
+      if (response.status === 200) {
+        // navigation.navigate("Home");
+        goNext();
+      } else {
+        Alert.alert("Failure", "Logged in fail");
+      }
+    } catch (error) {
+      setLoading(false);
+      const errorMessage =
+        error.response?.data?.message || error.message || "An error occurred";
+      setMessage(errorMessage);
+      Alert.alert("Error", errorMessage);
+    }
   };
   const goRegister = () => {
     navigation.navigate("Register");
   };
-  const goNext=()=>{
-    navigation.navigate('Getting2')
-  }
+  const goNext = () => {
+    navigation.navigate("Getting2");
+  };
 
   const navigation = useNavigation();
   return (
@@ -55,13 +70,12 @@ const LoginScreen = () => {
         </View>
         <View style={styles.form}>
           <View style={styles.FormInput}>
-            <Text style={styles.label}>Gmail/Số điện thoại của bạn: </Text>
+            <Text style={styles.label}>Username của bạn: </Text>
             <TextInput
               style={styles.TextInput}
-              onChangeText={(text) => setEmail(text)}
+              onChangeText={(text) => setUsername(text)}
               value={email}
-              placeholder="Nhập gmail/số điện thoại của bạn"
-              keyboardType="email-address"
+              placeholder="Nhập username của bạn"
               autoCapitalize="none"
             />
           </View>
@@ -96,7 +110,7 @@ const LoginScreen = () => {
             />
           </View>
           <View style={styles.LoginBtn}>
-            <BigBtn goNext={goNext} text={'Đăng nhập'}/>
+            <BigBtn goNext={handleLogin} text={"Đăng nhập"} />
           </View>
         </View>
       </View>
@@ -171,10 +185,10 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     justifyContent: "space-evenly",
   },
-  LoginBtn:{
-    position:'absolute',
-    bottom:0
-  }
+  LoginBtn: {
+    position: "absolute",
+    bottom: 0,
+  },
 });
 
 export default LoginScreen;

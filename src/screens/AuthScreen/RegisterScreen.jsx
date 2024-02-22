@@ -8,27 +8,50 @@ import {
   StyleSheet,
   SafeAreaView,
   TextInput,
+  Alert,
+  Pressable,
+  KeyboardAvoidingView,
 } from "react-native";
 import Checkbox from "expo-checkbox";
-import { FontAwesome } from "@expo/vector-icons";
-import { Colors } from "../../../GlobalStyles";
 import { useNavigation } from "@react-navigation/native";
-import { FontAwesome5 } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-import BigBtn from "../../components/BigBtn";
-import { Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import axios from "axios";
+import BigBtn from "../../components/BigBtn";
+import { Colors } from "../../../GlobalStyles";
 
 const RegisterScreen = () => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
-  const [modal, setModal] = useState(false);
-  const goLogin = () => {
-    navigation.navigate("Login");
-  };
   const [isChecked, setChecked] = useState(false);
+
+  const handleSignUp = async () => {
+    if (isChecked) {
+      try {
+        const response = await axios.post(`http://${IP}:8080/api/auth/signup`, {
+          username: username, // Assuming you want to use email as the username
+          email,
+          password,
+          role: ["user"],
+        });
+        if (response.status === 200) {
+          Alert.alert("Success", "Account created successfully!");
+          navigation.navigate("Login");
+        } else {
+          Alert.alert("Failure", "Can't create account!");
+        }
+      } catch (error) {
+        const errorMessage =
+          error.response?.data?.message ||
+          error.message ||
+          "An error occurred during sign up";
+        Alert.alert("Error", errorMessage);
+      }
+    } else {
+      Alert.alert("Error", "You must accept the terms to continue");
+    }
+  };
 
   return (
     <SafeAreaView style={styles.wrapper}>
@@ -38,33 +61,37 @@ const RegisterScreen = () => {
             navigation.goBack();
           }}
         >
-          <FontAwesome name="long-arrow-left" size={28} color={Colors.pink} />
+          <Ionicons name="ios-arrow-back" size={28} color={Colors.pink} />
         </TouchableOpacity>
       </View>
-      <View style={styles.container}>
+      <KeyboardAvoidingView
+        style={styles.container}
+        behavior="padding"
+        enabled={Platform.OS === "ios"}
+      >
         <Image
-          style={styles.imgage}
+          style={styles.image}
           source={require("../../../assets/Logo-iBody.png")}
         />
         <View style={styles.title}>
           <Text style={styles.textTitle}>Tạo tài khoản mới</Text>
         </View>
         <View style={styles.form}>
-          <View style={styles.FormInput}>
+          <View style={styles.formInput}>
             <Text style={styles.label}>Username: </Text>
             <TextInput
-              style={styles.TextInput}
-              onChangeText={(text) => setEmail(text)}
+              style={styles.textInput}
+              onChangeText={(text) => setUsername(text)}
               value={email}
               placeholder="Nhập username của bạn"
               keyboardType="email-address"
               autoCapitalize="none"
             />
           </View>
-          <View style={styles.FormInput}>
+          <View style={styles.formInput}>
             <Text style={styles.label}>Gmail/Số điện thoại của bạn: </Text>
             <TextInput
-              style={styles.TextInput}
+              style={styles.textInput}
               onChangeText={(text) => setEmail(text)}
               value={email}
               placeholder="Nhập gmail/số điện thoại của bạn"
@@ -72,10 +99,10 @@ const RegisterScreen = () => {
               autoCapitalize="none"
             />
           </View>
-          <View style={styles.FormInput}>
+          <View style={styles.formInput}>
             <Text style={styles.label}>Mật khẩu của bạn:</Text>
             <TextInput
-              style={styles.TextInput}
+              style={styles.textInput}
               onChangeText={(text) => setPassword(text)}
               value={password}
               placeholder="Nhập mật khẩu của bạn"
@@ -92,39 +119,37 @@ const RegisterScreen = () => {
           />
           <Text style={styles.policyText}>
             Tôi đồng ý với {""}
-            <Text onPress={() => setModal(true)} style={{ color: Colors.pink }}>
+            <Text
+              onPress={() => navigation.navigate("TermsAndConditions")}
+              style={{ color: Colors.pink }}
+            >
               Điều khoản sử dụng
             </Text>{" "}
             và{" "}
-            <Text onPress={() => setModal(true)} style={{ color: Colors.pink }}>
+            <Text
+              onPress={() => navigation.navigate("PrivacyPolicy")}
+              style={{ color: Colors.pink }}
+            >
               chính sách bảo mật
             </Text>{" "}
             của ứng dụng{" "}
           </Text>
         </View>
-        <View style={styles.regisetBtn}>
-          <BigBtn goNext={goLogin} text={"Đăng ký"} />
-        </View>
-      </View>
-
-      {modal && (
-        <View style={styles.modal}>
-          <TouchableOpacity
-            onPress={() => {
-              setModal(false);
-            }}
-            style={styles.exit}
-          >
-            <Ionicons name="exit" size={24} color="black" />
-          </TouchableOpacity>
-
-          <Text>modal</Text>
-        </View>
-      )}
+        <Pressable style={{ marginTop: 20 }} onPress={handleSignUp}>
+          <BigBtn text={"Đăng ký"} />
+        </Pressable>
+        <Pressable
+          style={{ marginTop: 15 }}
+          onPress={() => navigation.navigate("Login")}
+        >
+          <Text style={{ textAlign: "center", fontSize: 16 }}>
+            Already have an account? Log in
+          </Text>
+        </Pressable>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
-
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
