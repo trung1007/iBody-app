@@ -4,7 +4,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-
+import com.example.server.domain.ERole;
+import com.example.server.domain.KnowledgeContent;
+import com.example.server.domain.KnowledgeTopic;
 import com.example.server.domain.Role;
 
 import com.example.server.domain.User;
@@ -18,7 +20,8 @@ public class HibernateUtil {
     private static String port = "3306";
     private static String pass = "6MNWLx1hv5CVRZQbkSkq";
     private static String user = "ujprkcke512ryoqx";
-    // private static String host = "jdbc:mysql://utxn8kpxkal81q5c:3NasSaj0OS8vmH9ZpPbY@bblipzsuaomfkih4bdzx-mysql.services.clever-cloud.com:";
+    // private static String host =
+    // "jdbc:mysql://utxn8kpxkal81q5c:3NasSaj0OS8vmH9ZpPbY@bblipzsuaomfkih4bdzx-mysql.services.clever-cloud.com:";
 
     private static String url = "jdbc:mysql://ujprkcke512ryoqx:6MNWLx1hv5CVRZQbkSkq@brx264lratoebbqldbov-mysql.services.clever-cloud.com:3306/brx264lratoebbqldbov";
 
@@ -77,7 +80,8 @@ public class HibernateUtil {
     }
 
     public static SessionFactory getSessionFactory() {
-        return getSessionFactory(currentDB, port, user, pass, Role.class, User.class);
+        return getSessionFactory(currentDB, port, user, pass, Role.class, User.class, ERole.class,
+                KnowledgeContent.class, KnowledgeTopic.class);
     }
 
 }

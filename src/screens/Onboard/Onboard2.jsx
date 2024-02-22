@@ -44,13 +44,13 @@ const Onboard2 = () => {
             <View style={styles.content}>
               <Text style={{textAlign:'center'}}>
                 <Text style={{ fontWeight: "600" }}>
-                  SDS 3 (sức khỏe và có cuộc sống tốt):
+                  SDS 3 (sức khỏe và có cuộc sống tốt): 
                 </Text>
                 <Text>bảo vệ người dùng trước nguy cơ xâm hại</Text>
               </Text>
               <Text style={{textAlign:'center'}}>
                 <Text style={{ fontWeight: "600" }}>
-                  SDG 4 (giáo dục chất lượng):
+                  SDG 4 (giáo dục chất lượng): 
                 </Text>
                 <Text>
                   giáo dục giới tính thiết thực thông qua gamification
@@ -58,7 +58,7 @@ const Onboard2 = () => {
               </Text>
               <Text style={{textAlign:'center'}}  >
                 <Text style={{ fontWeight: "600" }}>
-                  SDG 5 (bình đẳng giới):
+                  SDG 5 (bình đẳng giới): 
                 </Text>
                 <Text>
                   nâng cao nhận thức trong cộng đồng và nuôi dưỡng sự tôn trọng

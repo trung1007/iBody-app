@@ -60,24 +60,10 @@ public class WebSecurityConfig {
         .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler))
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(auth -> auth.requestMatchers("/api/auth/**").permitAll()
-            .requestMatchers("/api/delivery-orders").permitAll()
-            .requestMatchers("/api/delivery-orders/**").permitAll()
-            .requestMatchers("/api/transaction-points").permitAll()
-            .requestMatchers("/api/transaction-points/**").permitAll()
-            .requestMatchers("/api/gathering-points").permitAll()
-            .requestMatchers("/api/gathering-points/**").permitAll()
-            .requestMatchers("/api/test/**").permitAll()
-            .requestMatchers("/api/point-leaders").permitAll()
-            .requestMatchers("/api/point-leaders/**").permitAll()
+            .requestMatchers("/api/knowledge/**").permitAll()
+
             .requestMatchers("/api/users/**").permitAll()
-            .requestMatchers("/api/teller/**").permitAll()
-            .requestMatchers("/api/teller").permitAll()
-            .requestMatchers("/api/order-movements").permitAll()
-            .requestMatchers("/api/order-movements/**").permitAll()
-            .requestMatchers("/api/transaction-gathering").permitAll()
-            .requestMatchers("/api/staff").permitAll()
-            .requestMatchers("/api/customer").permitAll()
-            .requestMatchers("/api/customer/**").permitAll()
+
             .requestMatchers("/api/role/**").permitAll()
 
             .anyRequest().authenticated());
