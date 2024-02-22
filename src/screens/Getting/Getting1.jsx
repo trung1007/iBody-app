@@ -14,28 +14,27 @@ import { FontAwesome } from "@expo/vector-icons";
 import { useSound } from "../../hooks/useSound";
 import BigBtn from "../../components/BigBtn";
 
-
 const Getting1 = () => {
   const navigation = useNavigation();
   const goNext = () => {
     navigation.navigate("Getting2");
   };
-  const goLogin = () =>{
-    navigation.navigate('Login')
-  }
-  const goRegister=()=>{
-    navigation.navigate('Register')
-  }
-  const {playSound} = useSound(require('../../../assets/sound/Btn_press2.mp3'))
+  const goLogin = () => {
+    navigation.navigate("Login");
+  };
+  const goRegister = () => {
+    navigation.navigate("Register");
+  };
+  const { playSound } = useSound(
+    require("../../../assets/sound/Btn_press2.mp3")
+  );
 
-  const onPressLogin=async()=>{
-    goLogin(),
-    await playSound()
-  }
-  const onPressNext=async()=>{
-    goNext(),
-    await playSound()
-  }
+  const onPressLogin = async () => {
+    goLogin(), await playSound();
+  };
+  const onPressNext = async () => {
+    goNext(), await playSound();
+  };
   return (
     <SafeAreaView style={styles.wrapper}>
       <TouchableOpacity
@@ -57,17 +56,26 @@ const Getting1 = () => {
             Giảm thiểu những vấn nạn
           </Text>
         </View>
-
+        <View style={styles.space}></View>
+        {/* Added space between title and next section */}
         <View style={styles.next}>
           <View style={styles.getting}>
             <TouchableOpacity onPress={onPressNext}>
               <Text style={styles.gettingText}>Trải nghiệm ngay</Text>
             </TouchableOpacity>
           </View>
+          <View style={styles.space}></View>
+          {/* Added space between "Trải nghiệm ngay" and "Bạn chưa có tài khoản?" */}
           <View style={styles.register}>
-            <Text style={{ fontSize: 16 }}>Bạn chưa có tài khoản?</Text>
-            <Button title="Bắt đầu ngay" color={Colors.pink} onPress={goRegister} />
+            <Text style={{ fontSize: 16 }}>Bạn chưa có tài khoản? </Text>
+            <Button
+              title="Bắt đầu ngay"
+              color={Colors.pink}
+              onPress={goRegister}
+            />
           </View>
+          <View style={styles.space}></View>
+          {/* Added space between "Bắt đầu ngay" and "Đăng nhập" */}
           <View style={styles.login}>
             <TouchableOpacity onPress={onPressLogin}>
               <Text style={styles.loginText}>Đăng nhập</Text>
@@ -83,8 +91,8 @@ const Getting1 = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    marginRight:10,
-    marginLeft:10
+    marginRight: 10,
+    marginLeft: 10,
   },
   title: {
     display: "flex",
@@ -104,7 +112,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 50,
     justifyContent: "center",
-    
+
     alignItems: "center",
     borderRadius: Btn.border,
   },
@@ -112,7 +120,7 @@ const styles = StyleSheet.create({
     fontSize: Font.size,
     fontWeight: Font.weight,
     color: Colors.pink,
-    fontWeight:'700',
+    fontWeight: "700",
     opacity: 1,
     letterSpacing: Font.spacing,
   },
@@ -134,8 +142,11 @@ const styles = StyleSheet.create({
   loginText: {
     fontSize: Font.size,
     color: "white",
-    fontWeight: '700',
+    fontWeight: "700",
     letterSpacing: Font.spacing,
+  },
+  space: {
+    height: 20, // Adjust the height as needed for spacing
   },
 });
 

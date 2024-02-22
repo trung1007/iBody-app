@@ -53,6 +53,7 @@ public class AuthController {
     @Autowired
     JwtUtils jwtUtils;
 
+
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
 
@@ -109,32 +110,32 @@ public class AuthController {
         Set<Role> roles = new HashSet<>();
 
         if (strRoles == null) {
-            Role userRole = roleRepository.findByRoleName(ERole.ROLE_CUSTOMER)
+            Role userRole = roleRepository.findByRoleName(ERole.ROLE_BABY)
                     .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
             roles.add(userRole);
         } else {
             strRoles.forEach(role -> {
                 switch (role) {
-                    case "boss":
-                        Role adminRole = roleRepository.findByRoleName(ERole.ROLE_BOSS)
+                    case "baby":
+                        Role adminRole = roleRepository.findByRoleName(ERole.ROLE_BABY)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(adminRole);
 
                         break;
-                    case "point_leader":
-                        Role modRole = roleRepository.findByRoleName(ERole.ROLE_POINTLEADER)
+                    case "teen":
+                        Role modRole = roleRepository.findByRoleName(ERole.ROLE_TEEN)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(modRole);
 
                         break;
-                    case "staff":
-                        Role staffRole = roleRepository.findByRoleName(ERole.ROLE_STAFF)
+                    case "parent":
+                        Role staffRole = roleRepository.findByRoleName(ERole.ROLE_PARENT)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(staffRole);
 
                         break;
                     default:
-                        Role userRole = roleRepository.findByRoleName(ERole.ROLE_TELLER)
+                        Role userRole = roleRepository.findByRoleName(ERole.ROLE_BABY)
                                 .orElseThrow(() -> new RuntimeException("Error: Role is not found."));
                         roles.add(userRole);
                 }

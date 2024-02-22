@@ -51,12 +51,12 @@ const RegisterScreen = () => {
         </View>
         <View style={styles.form}>
           <View style={styles.FormInput}>
-            <Text style={styles.label}>Họ và tên của bạn: </Text>
+            <Text style={styles.label}>Username: </Text>
             <TextInput
               style={styles.TextInput}
               onChangeText={(text) => setEmail(text)}
               value={email}
-              placeholder="Nhập họ và tên của bạn"
+              placeholder="Nhập username của bạn"
               keyboardType="email-address"
               autoCapitalize="none"
             />
@@ -109,9 +109,12 @@ const RegisterScreen = () => {
 
       {modal && (
         <View style={styles.modal}>
-          <TouchableOpacity onPress={()=>{
-            setModal(false)
-          }} style={styles.exit}>
+          <TouchableOpacity
+            onPress={() => {
+              setModal(false);
+            }}
+            style={styles.exit}
+          >
             <Ionicons name="exit" size={24} color="black" />
           </TouchableOpacity>
 
@@ -195,12 +198,12 @@ const styles = StyleSheet.create({
     width: "auto",
     height: "auto",
     backgroundColor: Colors.peach_orange,
-    borderRadius:20
+    borderRadius: 20,
   },
-  exit:{
-    position:'absolute',
-    right:10,
-    top:10,
+  exit: {
+    position: "absolute",
+    right: 10,
+    top: 10,
   },
 });
 
