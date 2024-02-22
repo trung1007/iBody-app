@@ -11,6 +11,7 @@ import {
   Alert,
   Pressable,
   KeyboardAvoidingView,
+  ActivityIndicator,
 } from "react-native";
 import Checkbox from "expo-checkbox";
 import { useNavigation } from "@react-navigation/native";
@@ -18,15 +19,17 @@ import { Ionicons } from "@expo/vector-icons";
 import axios from "axios";
 import BigBtn from "../../components/BigBtn";
 import { Colors } from "../../../GlobalStyles";
-
+import { IP } from "../../../const";
 const RegisterScreen = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigation = useNavigation();
   const [isChecked, setChecked] = useState(false);
-
+  const [loading, setLoading] = useState(false);
+  const goNext = () => {};
   const handleSignUp = async () => {
+    setLoading(true);
     if (isChecked) {
       try {
         const response = await axios.post(`http://${IP}:8080/api/auth/signup`, {
@@ -38,6 +41,7 @@ const RegisterScreen = () => {
         if (response.status === 200) {
           Alert.alert("Success", "Account created successfully!");
           navigation.navigate("Login");
+          setLoading(false);
         } else {
           Alert.alert("Failure", "Can't create account!");
         }
@@ -82,9 +86,8 @@ const RegisterScreen = () => {
             <TextInput
               style={styles.textInput}
               onChangeText={(text) => setUsername(text)}
-              value={email}
+              value={username}
               placeholder="Nhập username của bạn"
-              keyboardType="email-address"
               autoCapitalize="none"
             />
           </View>
@@ -136,7 +139,11 @@ const RegisterScreen = () => {
           </Text>
         </View>
         <Pressable style={{ marginTop: 20 }} onPress={handleSignUp}>
-          <BigBtn text={"Đăng ký"} />
+          {loading ? (
+            <ActivityIndicator />
+          ) : (
+            <BigBtn goNext={goNext} text={"Đăng ký"} />
+          )}
         </Pressable>
         <Pressable
           style={{ marginTop: 15 }}

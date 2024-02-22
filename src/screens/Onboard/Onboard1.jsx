@@ -18,8 +18,7 @@ import Onboard2 from "./Onboard2";
 const Stack = createNativeStackNavigator();
 
 const Onboard1 = () => {
-
-  const navigation=useNavigation();
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.wrapper}>
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
@@ -50,15 +49,14 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     display: "flex",
-    backgroundColor:'white'
-
+    backgroundColor: "white",
   },
   title: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    marginTop:10
+    marginTop: 10,
   },
 
   next: {
@@ -68,6 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     position: "absolute",
     bottom: 20,
+    marginRight: 20,
   },
 });
 

@@ -8,6 +8,8 @@ import {
   StyleSheet,
   SafeAreaView,
   TextInput,
+  Pressable,
+  ActivityIndicator,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { Colors } from "../../../GlobalStyles";
@@ -17,9 +19,14 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import BigBtn from "../../components/BigBtn";
 import AuthService from "../../services/auth.service";
+
 const LoginScreen = () => {
+  const navigation = useNavigation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [checked, setChecked] = useState(false);
 
   const handleLogin = async () => {
     setLoading(true);
@@ -28,6 +35,7 @@ const LoginScreen = () => {
     try {
       const response = await AuthService.login(username, password);
       if (response.status === 200) {
+        setLoading(false);
         // navigation.navigate("Home");
         goNext();
       } else {
@@ -41,48 +49,40 @@ const LoginScreen = () => {
       Alert.alert("Error", errorMessage);
     }
   };
+
   const goRegister = () => {
     navigation.navigate("Register");
   };
+
   const goNext = () => {
     navigation.navigate("Getting2");
   };
 
-  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.wrapper}>
-      <View style={styles.arrowBack}>
-        <TouchableOpacity
-          onPress={() => {
-            navigation.goBack();
-          }}
-        >
-          <FontAwesome name="long-arrow-left" size={28} color={Colors.pink} />
-        </TouchableOpacity>
-      </View>
       <View style={styles.container}>
         <Image
-          style={styles.imgage}
+          style={styles.image}
           source={require("../../../assets/Logo-iBody.png")}
         />
         <View style={styles.title}>
           <Text style={styles.textTitle}>Đăng nhập vào tài khoản của bạn</Text>
         </View>
         <View style={styles.form}>
-          <View style={styles.FormInput}>
+          <View style={styles.formInput}>
             <Text style={styles.label}>Username của bạn: </Text>
             <TextInput
-              style={styles.TextInput}
+              style={styles.textInput}
               onChangeText={(text) => setUsername(text)}
-              value={email}
+              value={username}
               placeholder="Nhập username của bạn"
               autoCapitalize="none"
             />
           </View>
-          <View style={styles.FormInput}>
+          <View style={styles.formInput}>
             <Text style={styles.label}>Mật khẩu của bạn:</Text>
             <TextInput
-              style={styles.TextInput}
+              style={styles.textInput}
               onChangeText={(text) => setPassword(text)}
               value={password}
               placeholder="Nhập mật khẩu của bạn"
@@ -92,15 +92,6 @@ const LoginScreen = () => {
         </View>
 
         <View style={styles.bottom}>
-          <View>
-            <Text style={{ fontSize: 24, fontWeight: "600" }}>
-              Đăng nhập bằng
-            </Text>
-            <View style={styles.logo}>
-              <FontAwesome5 name="facebook" size={40} color="blue" />
-              <AntDesign name="google" size={40} color="#DB4437" />
-            </View>
-          </View>
           <View style={styles.register}>
             <Text style={{ fontSize: 16 }}>Bạn chưa có tài khoản?</Text>
             <Button
@@ -109,8 +100,14 @@ const LoginScreen = () => {
               onPress={goRegister}
             />
           </View>
-          <View style={styles.LoginBtn}>
-            <BigBtn goNext={handleLogin} text={"Đăng nhập"} />
+          <View style={styles.loginBtn}>
+            <Pressable onPress={handleLogin}>
+              {loading ? (
+                <ActivityIndicator />
+              ) : (
+                <BigBtn goNext={handleLogin} text={"Đăng nhập"} />
+              )}
+            </Pressable>
           </View>
         </View>
       </View>
@@ -123,15 +120,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
-  arrowBack: {
-    paddingLeft: 10,
-  },
   container: {
     flex: 1,
     alignItems: "center",
     marginTop: 10,
   },
-  imgage: {
+  image: {
     height: 100,
     width: 100,
   },
@@ -150,7 +144,7 @@ const styles = StyleSheet.create({
     display: "flex",
     gap: 10,
   },
-  FormInput: {
+  formInput: {
     display: "flex",
     gap: 5,
   },
@@ -158,7 +152,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
   },
-  TextInput: {
+  textInput: {
     width: 300,
     height: 50,
     padding: 12,
@@ -178,14 +172,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  logo: {
-    display: "flex",
-    flexDirection: "row",
-    marginTop: 12,
-    marginBottom: 12,
-    justifyContent: "space-evenly",
-  },
-  LoginBtn: {
+  loginBtn: {
     position: "absolute",
     bottom: 0,
   },
