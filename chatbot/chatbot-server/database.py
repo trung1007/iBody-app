@@ -119,7 +119,7 @@ database = [
         "ageRangeParent": True,
         "content": "Quyết định xem bạn đã sẵn sàng quan hệ tình dục hay chưa là quyết định quan trọng mang tính cá nhân. Bạn không cần phải vội vàng. Hãy suy nghĩ kỹ và đợi đến lúc bản thân thực sự sẵn sàng cho chuyện này.",
     },
-    {
+    {   
         "topicName": "Quan hệ tình dục",
         "description": "Làm sao để biết bạn đã sẵn sàng quan hệ tình dục?",
         "ageRangeChild": False,
