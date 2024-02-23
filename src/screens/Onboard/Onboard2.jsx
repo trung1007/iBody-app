@@ -45,23 +45,25 @@ const Onboard2 = () => {
               <Text style={{textAlign:'center'}}>
                 <Text style={{ fontWeight: "600" }}>
                   SDS 3 (sức khỏe và có cuộc sống tốt): 
-                </Text>
-                <Text>bảo vệ người dùng trước nguy cơ xâm hại</Text>
+                </Text> <Text> </Text>
+                <Text>Bảo vệ người dùng trước nguy cơ xâm hại</Text>
               </Text>
               <Text style={{textAlign:'center'}}>
                 <Text style={{ fontWeight: "600" }}>
                   SDG 4 (giáo dục chất lượng): 
-                </Text>
+                </Text> 
+                <Text> </Text>
                 <Text>
-                  giáo dục giới tính thiết thực thông qua gamification
+                  Giáo dục giới tính thiết thực thông qua gamification
                 </Text>
               </Text>
               <Text style={{textAlign:'center'}}  >
                 <Text style={{ fontWeight: "600" }}>
                   SDG 5 (bình đẳng giới): 
                 </Text>
+                <Text> </Text>
                 <Text>
-                  nâng cao nhận thức trong cộng đồng và nuôi dưỡng sự tôn trọng
+                  Nâng cao nhận thức trong cộng đồng và nuôi dưỡng sự tôn trọng
                   lẫn nhau{" "}
                 </Text>
               </Text>

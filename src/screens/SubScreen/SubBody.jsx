@@ -17,22 +17,23 @@ const SubBody = () => {
   const navigation = useNavigation();
   const select = route.params?.select || "";
   const [color, setColor] = useState("");
-  const [title, setTitle] = useState("")
+  const [title, setTitle] = useState("");
   const [img, setImg] = useState(null);
-  useEffect(()=>{
-    if(select==='female'){
-        setColor(Colors.pink)
-        setTitle('Cơ thể và vùng kín của bạn nữ')
-        setImg(require('../../../assets/Img/Female/FemaleFrame5.png'))
+  const [imageBody, setImageBody] = useState("");
+  useEffect(() => {
+    if (select === "female") {
+      setColor(Colors.pink);
+      setTitle("Cơ thể và vùng kín của bạn nữ");
+      setImg(require("../../../assets/Img/Female/FemaleFrame5.png"));
+      setImageBody(require("../../../assets/Img/Female/FemaleBody.png"));
     }
-    if(select==='male'){
-        setColor(Colors.aero)
-        setTitle('Cơ thể và vùng kín của bạn nam')
-        // setImg(require('../../../assets/Img/Female/MaleFrame5.png'))
-
+    if (select === "male") {
+      setColor(Colors.aero);
+      setTitle("Cơ thể và vùng kín của bạn nam");
+      setImg(require("../../../assets/Img/Male/MaleFrame5.png"));
+      setImageBody(require("../../../assets/Img/Male/MaleBody.png"));
     }
-  }, [select])
-
+  }, [select]);
 
   return (
     <SafeAreaView style={styles.wrapper}>
@@ -42,12 +43,17 @@ const SubBody = () => {
             navigation.goBack();
           }}
         >
-          <FontAwesome name="long-arrow-left" size={28} color={color||'black'}/>
+          <FontAwesome
+            name="long-arrow-left"
+            size={28}
+            color={color || "black"}
+          />
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
         <Text>{title}</Text>
-        <Image source={img}/>
+        <Image source={img} />
+        <Image source={imageBody} />
       </View>
     </SafeAreaView>
   );
@@ -60,13 +66,13 @@ const styles = StyleSheet.create({
   arrowBack: {
     paddingLeft: 10,
   },
-  icon:{
-    fontSize:28,
-    color:Colors.pink
+  icon: {
+    fontSize: 28,
+    color: Colors.pink,
   },
-  content:{
-    paddingRight:10,
-    paddingLeft:10,
+  content: {
+    paddingRight: 10,
+    paddingLeft: 10,
   },
 });
 
