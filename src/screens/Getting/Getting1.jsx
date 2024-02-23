@@ -91,8 +91,11 @@ const Getting1 = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    marginRight: 10,
-    marginLeft: 10,
+    
+    backgroundColor: 'white'
+  },
+  arrowBack:{
+    paddingLeft:10,
   },
   title: {
     display: "flex",

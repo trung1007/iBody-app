@@ -14,7 +14,7 @@ const Profile = ()=>{
     const navigation = useNavigation();
 
     return(
-    <SafeAreaView>
+    <SafeAreaView style={styles.wrapper}>
         <TouchableOpacity onPress={()=>{
             navigation.goBack
         }}>
@@ -26,5 +26,12 @@ const Profile = ()=>{
     </SafeAreaView>)
     
 }
+
+const styles=StyleSheet.create({
+    wrapper:{
+        display:'flex',
+        flex:1
+    }
+})
 
 export default Profile

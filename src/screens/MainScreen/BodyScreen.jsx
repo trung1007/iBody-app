@@ -53,12 +53,15 @@ const BodyScreen = () => {
       <MainScreenHeader />
       <View style={styles.container}>
         <Image source={imageSource1} />
-        <View>
-          <Text>Cơ thể và vùng kín của chúng mình</Text>
-          <Text>
-            Ấn vào hình ảnh của từng bạn dưới đây để hiểu về vùng kín trên cơ
-            thể của các bạn ấy cũng như chính bạn
-          </Text>
+        <View >
+          <View style={styles.TextBox}>
+            <Text>Cơ thể và vùng kín của chúng mình</Text>
+            <Text>
+              Ấn vào hình ảnh của từng bạn dưới đây để hiểu về vùng kín trên cơ
+              thể của các bạn ấy cũng như chính bạn
+            </Text>
+          </View>
+
           <View style={styles.ImgContainer}>
             <Pressable
               onPress={() => {
@@ -92,6 +95,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "white",
+  },
+  TextBox:{
+    padding:10
   },
   ImgContainer: {
     display: "flex",
