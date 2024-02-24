@@ -5,20 +5,31 @@ import {
   SafeAreaView,
   StyleSheet,
   TouchableOpacity,
+  Image,
+  ImageBackground,
 } from "react-native";
 
 const Profile = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity onPress={() => {}}>
-        <Text style={styles.goBackText}>Go Back</Text>
-      </TouchableOpacity>
-
       <View style={styles.profileContainer}>
-        <Text style={styles.profileText}>Profile</Text>
-
+        {/* <Text style={styles.profileText}>Profile</Text> */}
+        <ImageBackground
+          style={{
+            resizeMode: "contain",
+            height: 100,
+            width: "100%",
+          }}
+          source={require("../../../assets/userBg.jpg")}
+        />
+        <Image
+          style={styles.avatar}
+          source={require("../../../assets/IMG_0655.jpg")}
+        />
+        <Text style={{fontWeight:'700', fontSize:16}}>Cao Trung</Text>
+        <Text>trungthanhcao.2003@gmail.com </Text>
         {/* User Details */}
-        <View style={styles.detailContainer}>
+        {/* <View style={styles.detailContainer}>
           <Text style={styles.detailLabel}>Fullname:</Text>
           <Text style={styles.detailValue}>John Doe</Text>
         </View>
@@ -31,7 +42,7 @@ const Profile = () => {
         <View style={styles.detailContainer}>
           <Text style={styles.detailLabel}>Username:</Text>
           <Text style={styles.detailValue}>johndoe123</Text>
-        </View>
+        </View> */}
       </View>
 
       {/* Logout Button */}
@@ -55,8 +66,12 @@ const styles = StyleSheet.create({
   },
   profileContainer: {
     backgroundColor: "#FFF",
-    padding: 20,
+    padding: 10,
     borderRadius: 10,
+    marginTop: 20,
+    display: "flex",
+    alignItems: "center",
+    gap:5,
   },
   profileText: {
     fontSize: 24,
@@ -74,12 +89,29 @@ const styles = StyleSheet.create({
   detailValue: {
     flex: 1,
   },
+  avatar: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    // position:'absolute',
+    // top: '50%',
+    // left: '50%',
+    // marginLeft: -30,
+    // marginTop: 20,
+    zIndex: 2,
+    marginTop: -35,
+  },
   logoutButton: {
     backgroundColor: "#F99B9B",
     padding: 15,
     borderRadius: 10,
     alignItems: "center",
     marginTop: 20,
+    // marginLeft:10,
+    // marginRight:10,
+    position: "absolute",
+    bottom: 0,
+    width: "100%",
   },
   logoutButtonText: {
     color: "#FFF",

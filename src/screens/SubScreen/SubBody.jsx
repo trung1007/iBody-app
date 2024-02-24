@@ -18,22 +18,25 @@ const SubBody = () => {
   const select = route.params?.select || "";
   const [color, setColor] = useState("");
   const [title, setTitle] = useState("");
-  const [img, setImg] = useState(null);
+  const [img, setImg] = useState("");
   const [imageBody, setImageBody] = useState("");
   useEffect(() => {
     if (select === "female") {
       setColor(Colors.pink);
       setTitle("Cơ thể và vùng kín của bạn nữ");
       setImg(require("../../../assets/Img/Female/FemaleFrame5.png"));
-      setImageBody(require("../../../assets/Img/Female/FemaleBody.png"));
+      setImageBody(require("../../../assets/Img/Female/FemaleFrame6.png"));
     }
     if (select === "male") {
       setColor(Colors.aero);
       setTitle("Cơ thể và vùng kín của bạn nam");
       setImg(require("../../../assets/Img/Male/MaleFrame5.png"));
-      setImageBody(require("../../../assets/Img/Male/MaleBody.png"));
+      setImageBody(require("../../../assets/Img/Male/MaleFrame6.png"));
     }
   }, [select]);
+  const subNavigate=()=>{
+    navigation.navigate("SubBody2",{select})
+  }
 
   return (
     <SafeAreaView style={styles.wrapper}>
@@ -51,9 +54,12 @@ const SubBody = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.content}>
-        <Text>{title}</Text>
+        <Text style={{fontSize:16}}>{title}</Text>
         <Image source={img} />
-        <Image source={imageBody} />
+        <TouchableOpacity onPress={subNavigate}>
+          <Image source={imageBody} />
+
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -62,6 +68,7 @@ const SubBody = () => {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
+    backgroundColor:'white'
   },
   arrowBack: {
     paddingLeft: 10,
@@ -71,8 +78,10 @@ const styles = StyleSheet.create({
     color: Colors.pink,
   },
   content: {
-    paddingRight: 10,
-    paddingLeft: 10,
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 10
   },
 });
 

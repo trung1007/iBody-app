@@ -7,11 +7,12 @@ import {
   ScrollView,
   ActivityIndicator,
   StyleSheet,
+  KeyboardAvoidingView,
 } from "react-native";
 import ReactMarkdown from "react-native-markdown-display";
 
 const ChatArea = () => {
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -25,7 +26,7 @@ const ChatArea = () => {
         ...prevChatHistory,
         { sender: "user", message: userInput },
       ]);
-      setUserInput('');
+      setUserInput("");
       setLoading(true);
       sendUserInput(userInput);
     }
@@ -69,7 +70,11 @@ const ChatArea = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "height" : "padding"}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 130 : 130}
+      style={styles.container}
+    >
       <ScrollView style={styles.chatContainer}>
         {chatHistory.map((chat, index) => (
           <View
@@ -99,9 +104,9 @@ const ChatArea = () => {
           onSubmitEditing={handleKeyDown}
           placeholder="Type your message..."
         />
-        <Button color= "#F99B9B"  title="Send" onPress={handleSend} />
+        <Button color="white" title="Send" onPress={handleSend} />
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -111,12 +116,12 @@ const styles = StyleSheet.create({
   },
   chatContainer: {
     flex: 1,
-    marginBottom: 60,
+    marginBottom: 30,
   },
   inputContainer: {
     flexDirection: "row",
-    position: "absolute",
-    bottom: 0,
+    // position: "absolute",
+    // bottom: 0,
     backgroundColor: "#F99B9B",
     padding: 10,
   },
