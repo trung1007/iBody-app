@@ -206,14 +206,30 @@ const SubBody2 = () => {
             onRequestClose={() => setModal2Visible(false)}
           >
             <SafeAreaView style={styles.modalContainer}>
+              <View style={styles.titleContainer}>
+                <Text style={styles.titleText}>
+                  Cấu tạo cơ quan sinh dục nữ
+                </Text>
+              </View>
               <View style={styles.modalContent}>
-                <Text style={styles.modalText}>Cấu tạo của bộ phận</Text>
-                <Button title="Xem Video" onPress={toggleWebView}></Button>
-                {webViewVisible && <></>}
-                <Button
-                  title="Close Modal"
-                  onPress={() => setModal2Visible(false)}
-                />
+                <View style={styles.centeredContainer}>
+                  <Image
+                    source={overviewFemaleImg}
+                    style={styles.resizedImage}
+                  />
+                </View>
+                <View style={styles.centeredContainer}>
+                  <Text style={styles.titleText}>
+                    1. Cơ quan sinh dục ngoài
+                  </Text>
+                </View>
+                <HorizontalSlideCards cardData={outsideGirlObject} />
+                <View style={styles.centeredContainer}>
+                  <Text style={styles.titleText}>
+                    2. Cơ quan sinh dục trong
+                  </Text>
+                </View>
+                <HorizontalSlideCards cardData={insideGirlObject} />
               </View>
             </SafeAreaView>
           </Modal>

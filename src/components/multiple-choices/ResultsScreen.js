@@ -9,7 +9,13 @@ import {
 import React from "react";
 import { useRoute } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+
 const ResultsScreen = () => {
+  const navigation = useNavigation();
+  const handlePress = () => {
+    navigation.navigate("Layout");
+  };
   const route = useRoute();
   // console.log(route.params);
   return (
@@ -81,22 +87,42 @@ const ResultsScreen = () => {
                 margin: 10,
                 flexDirection: "row",
                 alignItems: "center",
-                marginLeft:"auto",
-                marginRight:"auto"
+                marginLeft: "auto",
+                marginRight: "auto",
               }}
             >
               <Text>{item.question}</Text>
               {item.answer === true ? (
-                <AntDesign style={{marginLeft:5}} name="checkcircle" size={20} color="green" />
+                <AntDesign
+                  style={{ marginLeft: 5 }}
+                  name="checkcircle"
+                  size={20}
+                  color="green"
+                />
               ) : (
-                <AntDesign style={{marginLeft:5}} name="closecircle" size={20} color="red" />
+                <AntDesign
+                  style={{ marginLeft: 5 }}
+                  name="closecircle"
+                  size={20}
+                  color="red"
+                />
               )}
             </View>
           )}
         />
 
-        <Pressable style={{backgroundColor:"green",padding:8,marginLeft:"auto",marginRight:"auto",marginBottom:20,borderRadius:5}}>
-          <Text style={{color:"white",textAlign:"center"}}>Continue</Text>
+        <Pressable
+          style={{
+            backgroundColor: "green",
+            padding: 8,
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginBottom: 20,
+            borderRadius: 5,
+          }}
+          onPress={handlePress}
+        >
+          <Text style={{ color: "white", textAlign: "center" }}>Continue</Text>
         </Pressable>
       </Pressable>
     </SafeAreaView>

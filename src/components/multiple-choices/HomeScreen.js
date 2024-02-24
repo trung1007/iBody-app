@@ -22,7 +22,7 @@ const HomeScreen = () => {
             fontWeight: "600",
           }}
         >
-          QUIZ RULES
+          LUẬT CHƠI
         </Text>
 
         <View
@@ -49,7 +49,7 @@ const HomeScreen = () => {
                 fontWeight: "500",
               }}
             >
-              For each correct answer you get 5 points
+              Với mỗi câu trả lời đúng, em sẽ nhận 5 điểm.
             </Text>
           </View>
 
@@ -69,7 +69,7 @@ const HomeScreen = () => {
                 fontWeight: "500",
               }}
             >
-              There is no negative marking for wrong answer
+              Không trừ điểm nếu em trả lời sai.
             </Text>
           </View>
 
@@ -89,7 +89,7 @@ const HomeScreen = () => {
                 fontWeight: "500",
               }}
             >
-              Each question has a time limit of 15 sec
+              Mỗi câu hỏi sẽ có 15 giây đếm ngược.
             </Text>
           </View>
 
@@ -109,7 +109,7 @@ const HomeScreen = () => {
                 fontWeight: "500",
               }}
             >
-              You should answer all the questions compulsarily
+              Bắt buộc trả lời hết các câu hỏi.
             </Text>
           </View>
         </View>
@@ -127,7 +127,7 @@ const HomeScreen = () => {
           marginTop: 30,
         }}
       >
-        <Text style={{color:"white",fontWeight:"600",textAlign:"center"}}>Start Quiz</Text>
+        <Text style={{color:"white",fontWeight:"600",textAlign:"center"}}>Bắt đầu</Text>
       </Pressable>
     </View>
   );
