@@ -110,7 +110,15 @@ const ChatArea = () => {
               textAlign: chat.sender === "user" ? "right" : "left",
             }}
           >
-            <Text>{chat.sender === "user" ? "User:" : "Bot:"}</Text>
+            <Text
+              style={{
+                fontWeight: "bold",
+                color: chat.sender === "user" ? "white" : "#f89b89",
+              }}
+            >
+              {chat.sender === "user" ? "User" : "Tư vấn viên iBody"}
+            </Text>
+
             <ReactMarkdown>{chat.message}</ReactMarkdown>
           </View>
         ))}
