@@ -22,16 +22,14 @@ const MainScreenHeader = () => {
         style={styles.image}
       />
       <View style={styles.mana}>
-        <Text>stamina</Text>
-        <Text>0</Text>
+        {/* <Text>stamina</Text>
+        <Text>0</Text> */}
+        <Image source={require('../../assets/Img/stamina.png')}/>
       </View>
       <View style={styles.mana}>
-      <Text>Heart</Text>
-        <Text>0</Text>
+      <Image  source={require('../../assets/Img/heart.png')}/>
       </View>
-      <View>
-        <Text>Alert</Text>
-      </View>
+      <Image source={require('../../assets/Img/alert.png')} />
       <View>
         <Pressable onPress={()=>{
           setProfile(true)
@@ -51,9 +49,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent:'space-between',
     alignItems:'center',
-    marginLeft: 20,
-    marginRight: 20,
-    marginTop: 10,
+    // marginLeft: 20,
+    // marginRight: 20,
+    // marginTop: 10,
+    padding:10,
+    backgroundColor:'white'
   },
   image: {
     width: 66,
