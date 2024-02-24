@@ -21,23 +21,23 @@ import Adult from "./src/screens/Getting/Gender/Adult";
 import Layout from "./src/screens/MainScreen/Layout";
 import SubLayout from "./src/screens/SubScreen/Layout";
 import SubBody from "./src/screens/SubScreen/SubBody";
-import RNShake from 'react-native-shake';
+// import RNShake from 'react-native-shake';
 const Tabs = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
 export default function App() {
-  const phoneNumber = 113;
-  useEffect(() => {
-    const subscription = RNShake.addListener(() => {
-      // Handle shake event...
-      Linking.openURL(`tel:${phoneNumber}`)
-    });
+  // const phoneNumber = 113;
+  // useEffect(() => {
+  //   const subscription = RNShake.addListener(() => {
+  //     // Handle shake event...
+  //     Linking.openURL(`tel:${phoneNumber}`)
+  //   });
 
-    return () => {
-      subscription.remove();
-    };
-  }, []);
+  //   return () => {
+  //     subscription.remove();
+  //   };
+  // }, []);
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Getting Started">
