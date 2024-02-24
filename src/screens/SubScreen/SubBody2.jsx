@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useRef } from "react";
 import {
   View,
   Text,
@@ -254,6 +254,7 @@ const SubBody2 = () => {
                 <Text style={styles.modalText}>Quan hệ và an toàn</Text>
                 <Button title="Xem Video" onPress={toggleWebView}></Button>
                 {webViewVisible && <></>}
+                {webViewVisible && <></>}
                 <Button
                   title="Close Modal"
                   onPress={() => setModal3Visible(false)}
@@ -274,6 +275,7 @@ const SubBody2 = () => {
               <View style={styles.modalContent}>
                 <Text style={styles.modalText}>Vệ sinh và chăm sóc</Text>
                 <Button title="Xem Video" onPress={toggleWebView}></Button>
+                {webViewVisible && <></>}
                 {webViewVisible && <></>}
                 <Button
                   title="Close Modal"
@@ -340,6 +342,25 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     flex: 1,
+    backgroundColor: "white",
+  },
+  titleContainer: {
+    marginBottom: 10,
+    marginLeft: 10,
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+  centeredContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 10, // Adjust the margin as needed
+  },
+
+  resizedImage: {
+    width: 370, // Adjust the width as needed
+    height: 250, // Adjust the height as needed
     backgroundColor: "white",
   },
   titleContainer: {
