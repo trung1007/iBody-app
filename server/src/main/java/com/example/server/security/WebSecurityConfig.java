@@ -63,6 +63,7 @@ public class WebSecurityConfig {
             .requestMatchers("/api/knowledge/**").permitAll()
 
             .requestMatchers("/api/users/**").permitAll()
+            .requestMatchers("/api/user").permitAll()
 
             .requestMatchers("/api/role/**").permitAll()
 

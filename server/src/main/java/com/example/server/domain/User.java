@@ -42,6 +42,16 @@ public class User {
     @Email
     private String email;
 
+    @Column(name = "Energy", nullable = false)
+    private int energy;
+
+
+    @Column(name = "Lifes", nullable = false)
+    private int lifes;
+
+    @Column(name = "Gender", nullable = false)
+    private String gender;
+
     public List<Role> getRoles() {
         List<Role> roles = new ArrayList<>();
         roles.add(role);
