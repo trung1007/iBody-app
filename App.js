@@ -21,6 +21,8 @@ import Adult from "./src/screens/Getting/Gender/Adult";
 import Layout from "./src/screens/MainScreen/Layout";
 import SubLayout from "./src/screens/SubScreen/Layout";
 import SubBody from "./src/screens/SubScreen/SubBody";
+import QuizScreen from "./src/components/multiple-choices/QuizScreen";
+import ResultsScreen from "./src/components/multiple-choices/ResultsScreen";
 // import RNShake from 'react-native-shake';
 const Tabs = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -176,6 +178,28 @@ export default function App() {
         <Stack.Screen
           name="SubBody"
           component={SubBody}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="QuizScreen"
+          component={QuizScreen}
+          options={{
+            title: "",
+            headerStyle: {
+              height: 0,
+            },
+            headerLeft: null,
+          }}
+        />
+        <Stack.Screen
+          name="ResultsScreen"
+          component={ResultsScreen}
           options={{
             title: "",
             headerStyle: {

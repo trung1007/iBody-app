@@ -13,9 +13,9 @@ const Game = ({
 }) => {
   const [wordIndex, setWordIndex] = useState(0);
 
-  useEffect(() => {
-    Speech.speak(words[wordIndex].portuguese, { language: "vi-VN" });
-  }, [wordIndex]);
+  // useEffect(() => {
+  //   Speech.speak(words[wordIndex].portuguese, { language: "vi-VN" });
+  // }, [wordIndex]);
 
   const handleNextWord = () => {
     if (wordIndex < wordCount - 1) {
@@ -55,7 +55,7 @@ const Game = ({
             style={styles.flipButton}
             onPress={() => Speech.speak(portuguese, { language: "vi-VN" })}
           >
-            <Icon name="volume-up" type="font-awesome" size={24} />
+           
           </TouchableOpacity><Text style={styles.titleText}>Question</Text>
           <Text style={styles.wordText}>{portuguese}</Text>
         </View>
@@ -66,7 +66,7 @@ const Game = ({
             style={styles.flipButton}
             onPress={() => Speech.speak(english, { language: "en-US" })}
           >
-            <Icon name="volume-up" type="font-awesome" size={24} />
+           
           </TouchableOpacity><Text style={styles.titleText}>Answer</Text>
           <Text style={styles.wordText}>{english}</Text>
         </View>
