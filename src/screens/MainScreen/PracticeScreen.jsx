@@ -1,19 +1,22 @@
 import React from "react";
-import { View, Text, SafeAreaView } from "react-native";
+import { View, Text, SafeAreaView, Button } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import MainScreenHeader from "../../components/MainScreenHeader";
-
+import StackNavigator from "../../screens/MultipleChoiceScreen/StackNavigator";
+import { useNavigation } from "@react-navigation/native";
+import { Stack } from "expo-router";
 const PracticeScreen = () => {
-    const route=useRoute();
-    const gender=route.params?.gender || ''
-    const age = route.params?.age || ''
+  const navigation = useNavigation();
+  const route = useRoute();
+  const gender = route.params?.gender || "";
+  const age = route.params?.age || "";
 
   return (
     <SafeAreaView>
-        <MainScreenHeader/>
+      <MainScreenHeader />
 
       <View>
-        <Text>Game</Text>
+        <StackNavigator />
       </View>
     </SafeAreaView>
   );

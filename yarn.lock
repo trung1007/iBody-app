@@ -1408,16 +1408,7 @@
     "semver" "7.3.2"
     "tempy" "0.3.0"
 
-"@expo/json-file@^8.2.37":
-  "integrity" "sha512-yROUeXJXR5goagB8c3muFLCzLmdGOvoPpR5yDNaXrnTp4euNykr9yW0wWhJx4YVRTNOPtGBnEbbJBW+a9q+S6g=="
-  "resolved" "https://registry.npmjs.org/@expo/json-file/-/json-file-8.3.0.tgz"
-  "version" "8.3.0"
-  dependencies:
-    "@babel/code-frame" "~7.10.4"
-    "json5" "^2.2.2"
-    "write-file-atomic" "^2.3.0"
-
-"@expo/json-file@~8.2.37":
+"@expo/json-file@^8.2.37", "@expo/json-file@~8.2.37":
   "integrity" "sha512-YaH6rVg11JoTS2P6LsW7ybS2CULjf40AbnAHw2F1eDPuheprNjARZMnyHFPkKv7GuxCy+B9GPcbOKgc4cgA80Q=="
   "resolved" "https://registry.npmjs.org/@expo/json-file/-/json-file-8.2.37.tgz"
   "version" "8.2.37"
@@ -3759,14 +3750,7 @@
     "@expo/config" "~8.1.0"
     "uuid" "^3.3.2"
 
-"expo-file-system@~15.4.0":
-  "integrity" "sha512-xy61KaTaDgXhT/dllwYDHm3ch026EyO8j4eC6wSVr/yE12MMMxAC09yGwy4f7kkOs6ztGVQF5j7ldRzNLN4l0Q=="
-  "resolved" "https://registry.npmjs.org/expo-file-system/-/expo-file-system-15.4.5.tgz"
-  "version" "15.4.5"
-  dependencies:
-    "uuid" "^3.4.0"
-
-"expo-file-system@~15.4.5":
+"expo-file-system@~15.4.0", "expo-file-system@~15.4.5":
   "integrity" "sha512-xy61KaTaDgXhT/dllwYDHm3ch026EyO8j4eC6wSVr/yE12MMMxAC09yGwy4f7kkOs6ztGVQF5j7ldRzNLN4l0Q=="
   "resolved" "https://registry.npmjs.org/expo-file-system/-/expo-file-system-15.4.5.tgz"
   "version" "15.4.5"
