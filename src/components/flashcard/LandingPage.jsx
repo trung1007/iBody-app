@@ -13,7 +13,7 @@ const LandingPage = ({ wordCount, setWordCount, startGame }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>How many questions do you want to play?</Text>
+      <Text style={styles.title}>Chọn số luợng câu hỏi bạn muốn chơi</Text>
       <Text style={styles.wordCount}>{wordCount}</Text>
       <Slider
         style={styles.slider}

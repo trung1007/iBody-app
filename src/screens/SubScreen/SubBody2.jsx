@@ -10,6 +10,7 @@ import {
   Pressable,
   Modal,
   Button,
+  ScrollView,
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
@@ -87,6 +88,98 @@ const SubBody2 = () => {
     },
   ];
 
+  const safeSexActivities = [
+    {
+      title: "Tình dục an toàn là gì",
+      content:
+        "Tình dục an toàn là những hành vi tình dục bao gồm cả 2 yếu tố: không có nguy cơ nhiễm khuẩn lây qua đường tình dục và mang thai ngoài ý muốn.",
+    },
+    {
+      title: "Tránh thai",
+      content:
+        "Về phương diện tránh thai, tình dục an toàn gồm sử dụng biện pháp tránh thai an toàn, hiệu quả và đúng cách.",
+    },
+    {
+      title: "Phòng nhiễm khuẩn",
+      content:
+        "Về phương diện phòng nhiễm khuẩn lây truyền qua đường tình dục, tình dục an toàn có thể chia thành 3 nhóm",
+    },
+    {
+      title: "Tình dục an toàn (không có nguy cơ hoặc nguy cơ rất ít):",
+      content:
+        "Mơ tưởng tình dục, tự mình thủ dâm, vuốt ve trên mặt da lành lặn, ôm bạn tình, kiềm chế không quan hệ tình dục, chung thủy với một bạn tình, sử dụng bao cao su khi quan hệ tình dục, tình dục bằng tay với âm đạo hoặc dương vật.",
+    },
+    {
+      title: "Tình dục an toàn tương đối (nguy cơ trung bình):",
+      content:
+        "Quan hệ tình dục theo đường hậu môn có sử dụng bao cao su, bằng miệng với âm đạo hay với dương vật không sử dụng bao cao su.",
+    },
+    {
+      title: "Tình dục không an toàn (nguy cơ cao):",
+      content:
+        "Quan hệ tình dục theo đường âm đạo hay hậu môn mà không dùng bao cao su.",
+    },
+  ];
+
+  const healthySexActivities = [
+    {
+      title: "Tự nguyện",
+      content: "Quan hệ tình dục phải dựa trên sự tự nguyện của hai bên.",
+    },
+    {
+      title: "Đồng thuận",
+      content:
+        "Hai bên phải thống nhất với nhau về tất cả các chi tiết liên quan đến việc quan hệ tình dục: thời gian, thời điểm, địa điểm, cách thức, các biện pháp an toàn,...",
+    },
+    {
+      title: "Có trách nhiệm",
+      content:
+        "Những người tham gia hoạt động tình dục thể hiện trách nhiệm của mình bằng việc trang bị cho mình những kiến thức đầy đủ về tình dục để giúp mình và bạn tình có thể thoải mái và đạt khoái cảm khi quan hệ, chuẩn bị phương tiện tình dục an toàn và thực hiện tình dục an toàn, cùng nhau giải quyết các hậu quả liên quan đến quan hệ tình dục nếu có.",
+    },
+    {
+      title: "Tôn trọng lẫn nhau",
+      content:
+        "Quan điểm về tình dục của mỗi người thường là khác nhau kể cả giữa hai người rất yêu nhau. Mỗi người đều có quyền thực hiện các mong muốn về tình dục của mình nhưng bên cạnh đó lại luôn phải tuân thủ nguyên tắc tôn trọng các mong muốn của người khác. Sự trao đổi cởi mở sẽ giúp mọi người có thể tôn trọng nhau tốt hơn.",
+    },
+  ];
+
+  const femaleCleanData = [
+    {
+      title: "6 lưu ý để chị em vệ sinh vùng kín đúng cách",
+      content:
+        "Việc vệ sinh vùng kín luôn quan trọng, nhất là với phụ nữ. Nếu khu vực này không đảm bảo vệ sinh sẽ dẫn đến nhiều bệnh lý đáng lo ngại như nấm âm đạo, viêm âm đạo, thậm chí các bệnh ung thư vùng kín. Sau đây là 6 lưu ý giúp chị em vệ sinh vùng kín đúng cách.",
+    },
+    {
+      title: "Không thụt rửa âm đạo bằng vòi sen",
+      content:
+        "Có một số  chị em chưa đủ kiến thức hiểu biết nên đã dùng vòi sen, thậm chí vòi xịt để thụt vào âm đạo. Nếu mắc phải sai lầm này khi vệ sinh vùng kín sẽ khiến bộ phận nhạy cảm này dễ bị tổn thương, tạo cơ hội cho vi sinh vật có hại tấn công. \n Thậm chí có người còn dùng vòi sen thụt rửa sâu bên trong âm đạo nên càng gây hại nặng nề hơn. Bên trong vùng kín không chỉ có vi khuẩn có hại mà còn có hệ thống các lợi khuẩn giúp cân bằng độ pH và ngăn chặn vi khuẩn xâm nhập từ bên ngoài. Thụt rửa mạnh và sâu vào âm đạo sẽ khiến cả vi khuẩn có lợi và có hại bị tiêu diệt. Vì vậy sẽ làm mất cân bằng môi trường PH ở âm đạo. Ngoài ra, điều này cũng sẽ tạo điều kiện để vi khuẩn xấu thâm nhập vào cơ thể, làm tăng nguy cơ nhiễm trùng vùng kín.",
+    },
+    {
+      title: "Vệ sinh tập trung vào các khu vực xung quanh âm đạo",
+      content:
+        "Chỉ cần các vùng xung quanh kề cận âm đạo được sạch sẽ cũng đủ để giúp âm đạo được khỏe mạnh và sạch sẽ. Bởi âm đạo phụ nữ có khả năng tự làm sạch khá hiệu quả. Vì vậy chị em không cần thụt rửa sâu vào bên trong mà chỉ cần thường xuyên vệ sinh khu vực bên ngoài của vùng kín. \nBạn rửa nhẹ nhàng bên ngoài vùng kín bằng xà phòng dịu nhẹ, không mùi hoặc dung dịch vệ sinh phụ nữ. Ngoài ra, bạn cần chú ý làm sạch khu vực đáy chậu ở giữa âm đạo và hậu môn để tránh vi khuẩn từ vùng này lây lan sang âm đạo.",
+    },
+    {
+      title: "Không nên dùng các sản phẩm vệ sinh có mùi hương",
+      content:
+        "Chị em không nên dùng những sản phẩm có mùi hương như dầu thơm, sữa tắm... để rửa vùng kín. Bởi chúng có thể làm phá vỡ sự cân bằng tự nhiên của khu vực bên trong âm đạo. Thực tế, bạn chỉ cần làm sạch vùng kín bằng nước và các loại xà phòng không mùi là đủ. \nNgoài ra, nếu âm đạo có mùi khó chịu, bạn không nên dùng các sản phẩm có hương thơm để át mùi vì chúng có thể gây kích ứng và làm mùi nặng hơn. Thay vào đó, bạn nên đến gặp bác sĩ để được thăm khám và tư vấn cách khắc phục phù hợp.",
+    },
+    {
+      title: "Không rửa nhiều lần trong ngày",
+      content:
+        "Nếu bạn không vệ sinh mỗi ngày, vùng kín sẽ bị ảnh hưởng bởi sự tích tụ của mồ hôi và chất bài tiết, dẫn đến nhiễm trùng. Tuy nhiên, nếu vệ sinh nhiều hơn một lần mỗi ngày, chị em có thể khiến sự cân bằng của khu vực âm đạo bị phá vỡ.      ",
+    },
+    {
+      title: "Chỉ dùng tay hoặc khăn mềm khi vệ sinh vùng kín",
+      content:
+        "Nếu dùng khăn hay vật dụng chất liệu quá dày và thô cứng khi vệ sinh vùng kín, bạn sẽ khiến lớp da mỏng manh ở vùng kín dễ bị tổn thương, gây viêm nhiễm.",
+    },
+    {
+      title: "Rửa bằng nước sạch thật nhẹ nhàng trong ngày đèn đỏ",
+      content:
+        "Những ngày “đèn đỏ” luôn là nỗi e ngại của phụ nữ, nhất là các bước vệ sinh vùng kín. Chị em chỉ nên rửa bằng nước sạch thật nhẹ nhàng trong thời gian nhạy cảm này để giữ cho vùng kín đảm bảo vệ sinh.",
+    },
+  ];
   const route = useRoute();
   const select = route.params?.select || "";
   const navigation = useNavigation();
@@ -102,6 +195,8 @@ const SubBody2 = () => {
   const [img3, setImg3] = useState("");
   const [img4, setImg4] = useState("");
   const [overviewFemaleImg, setOverviewFemaleImg] = useState("");
+  const safeSexImg = require("../../../assets/safe-sex.jpg");
+  const femaleClean = require("../../../assets/female-clean.jpg");
   const [modal1Visible, setModal1Visible] = useState(false);
   const [modal2Visible, setModal2Visible] = useState(false);
   const [modal3Visible, setModal3Visible] = useState(false);
@@ -206,31 +301,49 @@ const SubBody2 = () => {
             onRequestClose={() => setModal2Visible(false)}
           >
             <SafeAreaView style={styles.modalContainer}>
-              <View style={styles.titleContainer}>
-                <Text style={styles.titleText}>
-                  Cấu tạo cơ quan sinh dục nữ
-                </Text>
-              </View>
-              <View style={styles.modalContent}>
-                <View style={styles.centeredContainer}>
-                  <Image
-                    source={overviewFemaleImg}
-                    style={styles.resizedImage}
-                  />
+              <Text style={styles.titleText}>Cấu tạo cơ quan sinh dục nữ</Text>
+              <ScrollView>
+                <View style={styles.titleContainer}></View>
+                <View style={styles.modalContent}>
+                  <View style={styles.centeredContainer}>
+                    <Image
+                      source={overviewFemaleImg}
+                      style={styles.resizedImage}
+                    />
+                  </View>
+                  <View style={styles.centeredContainer}>
+                    <Text style={styles.titleText}>
+                      1. Cơ quan sinh dục ngoài
+                    </Text>
+                  </View>
+                  <HorizontalSlideCards cardData={outsideGirlObject} />
+                  <View style={styles.centeredContainer}>
+                    <Text style={styles.titleText}>
+                      2. Cơ quan sinh dục trong
+                    </Text>
+                  </View>
+                  <HorizontalSlideCards cardData={insideGirlObject} />
+                  <View style={styles.bottomButtonContainer}>
+                    <TouchableOpacity
+                      onPress={() => setModal2Visible(false)}
+                      style={[
+                        styles.closeButton,
+                        {
+                          height: 50,
+                          width: 120,
+                          backgroundColor: "#f89b89",
+                          borderColor: "#f89b89",
+                          borderRadius: 25,
+                        },
+                      ]}
+                    >
+                      <View style={styles.buttonContent}>
+                        <Text style={styles.buttonText}>Close</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
                 </View>
-                <View style={styles.centeredContainer}>
-                  <Text style={styles.titleText}>
-                    1. Cơ quan sinh dục ngoài
-                  </Text>
-                </View>
-                <HorizontalSlideCards cardData={outsideGirlObject} />
-                <View style={styles.centeredContainer}>
-                  <Text style={styles.titleText}>
-                    2. Cơ quan sinh dục trong
-                  </Text>
-                </View>
-                <HorizontalSlideCards cardData={insideGirlObject} />
-              </View>
+              </ScrollView>
             </SafeAreaView>
           </Modal>
         </Pressable>
@@ -243,15 +356,44 @@ const SubBody2 = () => {
             onRequestClose={() => setModal3Visible(false)}
           >
             <SafeAreaView style={styles.modalContainer}>
-              <View style={styles.modalContent}>
-                <Text style={styles.modalText}>Quan hệ và an toàn</Text>
-                <Button title="Xem Video" onPress={toggleWebView}></Button>
-                {webViewVisible && <></>}
-                <Button
-                  title="Close Modal"
-                  onPress={() => setModal3Visible(false)}
-                />
-              </View>
+              <Text style={styles.titleText}>Quan hệ an toàn</Text>
+              <ScrollView>
+                <View style={styles.titleContainer}></View>
+                <View style={styles.modalContent}>
+                  <View style={styles.centeredContainer}>
+                    <Image source={safeSexImg} style={styles.resizedImage} />
+                  </View>
+                  <View style={styles.centeredContainer}>
+                    <Text style={styles.titleText}>
+                      1. Hành vi tình dục an toàn
+                    </Text>
+                  </View>
+                  <HorizontalSlideCards cardData={safeSexActivities} />
+                  <View style={styles.centeredContainer}>
+                    <Text style={styles.titleText}>2. Tình dục lành mạnh</Text>
+                  </View>
+                  <HorizontalSlideCards cardData={healthySexActivities} />
+                  <View style={styles.bottomButtonContainer}>
+                    <TouchableOpacity
+                      onPress={() => setModal3Visible(false)}
+                      style={[
+                        styles.closeButton,
+                        {
+                          height: 50,
+                          width: 120,
+                          backgroundColor: "#f89b89",
+                          borderColor: "#f89b89",
+                          borderRadius: 25,
+                        },
+                      ]}
+                    >
+                      <View style={styles.buttonContent}>
+                        <Text style={styles.buttonText}>Close</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </ScrollView>
             </SafeAreaView>
           </Modal>
         </Pressable>
@@ -264,19 +406,63 @@ const SubBody2 = () => {
             onRequestClose={() => setModal4Visible(false)}
           >
             <SafeAreaView style={styles.modalContainer}>
-              <View style={styles.modalContent}>
-                <Text style={styles.modalText}>Vệ sinh và chăm sóc</Text>
-                <Button title="Xem Video" onPress={toggleWebView}></Button>
-                {webViewVisible && <></>}
-                <Button
-                  title="Close Modal"
-                  onPress={() => setModal4Visible(false)}
-                />
-              </View>
+              <Text style={styles.titleText}>
+                Vệ sinh vùng kín cho nữ đúng cách
+              </Text>
+              <ScrollView>
+                <View style={styles.titleContainer}></View>
+                <View style={styles.modalContent}>
+                  <View style={styles.centeredContainer}>
+                    <Image source={safeSexImg} style={styles.resizedImage} />
+                  </View>
+
+                  <HorizontalSlideCards cardData={femaleCleanData} />
+
+                  <View style={styles.bottomButtonContainer}>
+                    <TouchableOpacity
+                      onPress={() => setModal4Visible(false)}
+                      style={[
+                        styles.closeButton,
+                        {
+                          height: 50,
+                          width: 120,
+                          backgroundColor: "#f89b89",
+                          borderColor: "#f89b89",
+                          borderRadius: 25,
+                        },
+                      ]}
+                    >
+                      <View style={styles.buttonContent}>
+                        <Text style={styles.buttonText}>Close</Text>
+                      </View>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </ScrollView>
             </SafeAreaView>
           </Modal>
         </Pressable>
       </View>
+      <TouchableOpacity
+        onPress={() => {
+          navigation.goBack();
+        }}
+        style={[
+          styles.closeButton,
+          {
+            height: 50,
+            width: 160,
+            backgroundColor: "#f89b89",
+            borderColor: "#f89b89",
+            borderRadius: 25,
+            marginHorizontal: 130,
+          },
+        ]}
+      >
+        <View style={styles.buttonContent}>
+          <Text style={styles.buttonText}>Hoàn thành khóa học</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -287,6 +473,23 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     display: "flex",
   },
+  buttonContent: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  buttonText: {
+    color: "#ffffff",
+  },
+
+  bottomButtonContainer: {
+    flex: 1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+    marginBottom: 20, // Adjust this value based on your design preferences
+  },
+
   arrowBack: {
     paddingLeft: 10,
     display: "flex",

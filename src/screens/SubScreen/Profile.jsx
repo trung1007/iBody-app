@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
-  Modal,Alert,
+  Modal,
+  Alert,
 } from "react-native";
 
 const Profile = () => {
@@ -25,7 +26,7 @@ const Profile = () => {
         // After 1 second, hide the modal and reset the state
         setTimeout(() => {
           setShowModal(false);
-          Alert.alert("You are in danger");
+          Alert.alert(" 'help help help me' \nBạn đang gặp nguy hiểm");
           // Reset to "SOS" after analyzing audio
           setIsRecording(false);
         }, 1000);
@@ -58,7 +59,7 @@ const Profile = () => {
           style={styles.avatar}
           source={require("../../../assets/IMG_0655.jpg")}
         />
-        <Text style={{fontWeight:'700', fontSize:16}}>Cao Trung</Text>
+        <Text style={{ fontWeight: "700", fontSize: 16 }}>Cao Trung</Text>
         <Text>trungthanhcao.2003@gmail.com </Text>
         {/* User Details */}
         {/* <View style={styles.detailContainer}>
@@ -96,7 +97,7 @@ const Profile = () => {
         onRequestClose={() => setShowModal(false)}
       >
         <View style={styles.modalContainer}>
-          <Text style={styles.modalText}>Analyzing audio...</Text>
+          <Text style={styles.modalText}>Nhận dạng âm thanh...</Text>
         </View>
       </Modal>
     </SafeAreaView>
@@ -126,7 +127,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 20,
     width: "100%",
-  },goBackText: {
+  },
+  goBackText: {
     color: "#000", // or any color you prefer
     fontSize: 16,
     marginBottom: 20,
@@ -146,7 +148,8 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontSize: 18,
     fontWeight: "bold",
-  },profileText: {
+  },
+  profileText: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,
