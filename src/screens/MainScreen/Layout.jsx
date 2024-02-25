@@ -80,7 +80,7 @@ const Layout = () => {
           component={RankingScreen}
           initialParams={{ gender, age }}
           options={{
-            title: "Xếp hạng",
+            title: "Tin nhắn",
             tabBarIcon: ({ focused }) => (
               <FontAwesome
                 name={focused ? "star" : "star"}

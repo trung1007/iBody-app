@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -7,12 +7,44 @@ import {
   TouchableOpacity,
   Image,
   ImageBackground,
+  Modal,Alert,
 } from "react-native";
 
 const Profile = () => {
+  const [isRecording, setIsRecording] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    if (isRecording) {
+      // Change back to "SOS" after 7 seconds
+      timer = setTimeout(() => {
+        setIsRecording(false);
+        setShowModal(true);
+
+        // After 1 second, hide the modal and reset the state
+        setTimeout(() => {
+          setShowModal(false);
+          Alert.alert("You are in danger");
+          // Reset to "SOS" after analyzing audio
+          setIsRecording(false);
+        }, 1000);
+      }, 7000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [isRecording]);
+
+  const handleSOSButtonPress = () => {
+    if (!isRecording) {
+      setIsRecording(true);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.profileContainer}>
+        {/* ... Existing profile content ... */}
         {/* <Text style={styles.profileText}>Profile</Text> */}
         <ImageBackground
           style={{
@@ -45,10 +77,28 @@ const Profile = () => {
         </View> */}
       </View>
 
-      {/* Logout Button */}
-      <TouchableOpacity style={styles.logoutButton} onPress={() => {}}>
-        <Text style={styles.logoutButtonText}>Logout</Text>
+      {/* SOS Button */}
+      <TouchableOpacity
+        style={styles.sosButton}
+        onPress={handleSOSButtonPress}
+        disabled={isRecording}
+      >
+        <Text style={styles.sosButtonText}>
+          {isRecording ? "Recording" : "SOS"}
+        </Text>
       </TouchableOpacity>
+
+      {/* Analyzing Audio Modal */}
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={showModal}
+        onRequestClose={() => setShowModal(false)}
+      >
+        <View style={styles.modalContainer}>
+          <Text style={styles.modalText}>Analyzing audio...</Text>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };
@@ -59,11 +109,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8BC9A",
     padding: 20,
   },
-  goBackText: {
-    color: "#000", // or any color you prefer
-    fontSize: 16,
-    marginBottom: 20,
-  },
   profileContainer: {
     backgroundColor: "#FFF",
     padding: 10,
@@ -71,9 +116,37 @@ const styles = StyleSheet.create({
     marginTop: 20,
     display: "flex",
     alignItems: "center",
-    gap:5,
+    gap: 5,
   },
-  profileText: {
+  // ... Existing styles ...
+  sosButton: {
+    backgroundColor: "#4CAF50",
+    padding: 15,
+    borderRadius: 10,
+    alignItems: "center",
+    marginTop: 20,
+    width: "100%",
+  },goBackText: {
+    color: "#000", // or any color you prefer
+    fontSize: 16,
+    marginBottom: 20,
+  },
+  sosButtonText: {
+    color: "#FFF",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalText: {
+    color: "#FFF",
+    fontSize: 18,
+    fontWeight: "bold",
+  },profileText: {
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 20,

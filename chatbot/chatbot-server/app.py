@@ -22,7 +22,7 @@ df["text"] = df["description"]
 model = SentenceTransformer("keepitreal/vietnamese-sbert")
 
 # Set your OpenAI GPT-3 API key
-openai.api_key = "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"
+openai.api_key = "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"
 
 # Encode the laptop descriptions into fixed-dimensional vectors
 laptop_embeddings = model.encode(df["text"].tolist())
